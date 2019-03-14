@@ -1,0 +1,48 @@
+swagger: "2.0"
+info:
+  description: ""
+  version: "0.0.1"
+  title: "Watch Eye"
+  contact:
+    email: "ycshwab@iqt.org"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "internal"
+basePath: "/api/v1"
+tags:
+- name: "ping"
+  description: "Ping API server"
+- name: "stats"
+  description: "Usage statistics"
+- name: "image"
+  description: "Capture and return image"
+- name: "video"
+  description: "Access video stream"  
+schemes:
+- "https"
+- "http"
+paths:
+  /ping:
+    get:
+      tags:
+      - "ping"
+      summary: "Ping running server"
+      operationId: "api.ping"      
+      produces:
+       - "application/json"      
+      responses:
+        '200':
+          description: "success"
+  /image:
+    get:
+      tags:
+      - "image"
+      summary: "Capture and return image from camera"
+      operationId: "api.image"      
+      produces:
+       - "application/json"      
+      responses:
+        '200':
+          description: "success"
+                    
