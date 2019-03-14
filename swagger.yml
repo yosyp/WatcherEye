@@ -17,8 +17,8 @@ tags:
   description: "Usage statistics"
 - name: "image"
   description: "Capture and return image"
-- name: "video"
-  description: "Access video stream"  
+- name: "start-stream"
+  description: "View video streama"  
 schemes:
 - "https"
 - "http"
@@ -34,6 +34,17 @@ paths:
       responses:
         '200':
           description: "success"
+  /stats:
+    get:
+      tags:
+      - "stats"
+      summary: "View APi usage statistics"
+      operationId: "api.stats"      
+      produces:
+       - "application/json"      
+      responses:
+        '200':
+          description: "success"          
   /image:
     get:
       tags:
@@ -41,8 +52,19 @@ paths:
       summary: "Capture and return image from camera"
       operationId: "api.image"      
       produces:
-       - "application/json"      
+       - "image/*"
       responses:
         '200':
           description: "success"
+  /start-stream:
+    get:
+      tags:
+      - "start-stream"
+      summary: "Returns URL to video stream"
+      operationId: "api.start-stream"      
+      produces:
+       - "application/json"      
+      responses:
+        '200':
+          description: "success"              
                     
