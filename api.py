@@ -2,7 +2,7 @@
 API module responds to all api requests defined in swagger.yml
 """
 from datetime import datetime
-from flask import make_response, abort
+from flask import make_response, abort, send_file
 
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
@@ -26,4 +26,21 @@ def stats():
     return 'stats go here'
 
 def image():
-        
+    """
+    This function responds to a request for /api/v1/image
+    with API usage statistics
+
+    :return:        JSON array
+    """
+    return send_file('img.png', mimetype='image/png')
+    # return 'hello'
+
+def stream():
+    """
+    This function responds to a request for /api/v1/stream
+    with API usage statistics
+
+    :return:        JSON array
+    """
+    # return send_file('img.png', mimetype='image/png')
+    return 'hello'   

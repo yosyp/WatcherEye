@@ -17,7 +17,7 @@ tags:
   description: "Usage statistics"
 - name: "image"
   description: "Capture and return image"
-- name: "start-stream"
+- name: "stream"
   description: "View video streama"  
 schemes:
 - "https"
@@ -56,12 +56,12 @@ paths:
       responses:
         '200':
           description: "success"
-  /start-stream:
+  /stream:
     get:
       tags:
-      - "start-stream"
+      - "stream"
       summary: "Returns URL to video stream"
-      operationId: "api.start-stream"      
+      operationId: "api.stream"      
       produces:
        - "application/json"      
       responses:
