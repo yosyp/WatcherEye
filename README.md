@@ -17,15 +17,12 @@ Install all python packages:
 
 The API can be accessed via HTTP/S requests, see `swagger.yml` for up-to-date API endpoints:
 
-
-- /api/v1/ping
-  description: "Ping API server"
-- name: "stats"
-  description: "Usage statistics"
-- name: "image"
-  description: "Capture and return image"
-- name: "stream"
-  description: "View video streama"  
+| Method | Endpoint | Description |
+|-|-|-|
+| `GET` | `/api/v1/ping` | Ping API server |
+| `GET` | `/api/v1/stats` | Usage statistics |
+| `GET` | `/api/v1/image | Capture and return image |
+| `GET` | `/api/v1/stream | View video stream |
 
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
