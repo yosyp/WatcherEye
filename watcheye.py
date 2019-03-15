@@ -13,7 +13,6 @@ app = connexion.App(__name__, specification_dir="./")
 # Cead the swagger.yml file to configure the endpoints
 app.add_api("swagger.yml")
 
-
 # Create a URL route in our application for "/"
 @app.route("/")
 def home():
