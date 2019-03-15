@@ -21,8 +21,8 @@ The API can be accessed via HTTP/S requests, see `swagger.yml` for up-to-date AP
 |-|-|-|
 | `GET` | `/api/v1/ping` | Ping API server |
 | `GET` | `/api/v1/stats` | Usage statistics |
-| `GET` | `/api/v1/image | Capture and return image |
-| `GET` | `/api/v1/stream | View video stream |
+| `GET` | `/api/v1/image` | Capture and return image |
+| `GET` | `/api/v1/stream` | View video stream |
 
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
