@@ -12,7 +12,20 @@ Install all python packages:
 `pip install -r requirements.txt`
 
 ## Running
-`python watcheye.py`
+1. Run `python watcheye.py` 
+2. Point your favorite browser to `localhost:5000`
+
+The API can be accessed via HTTP/S requests, see `swagger.yml` for up-to-date API endpoints:
+
+
+- /api/v1/ping
+  description: "Ping API server"
+- name: "stats"
+  description: "Usage statistics"
+- name: "image"
+  description: "Capture and return image"
+- name: "stream"
+  description: "View video streama"  
 
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
