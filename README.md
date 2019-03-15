@@ -12,8 +12,9 @@ Install all python packages:
 `pip install -r requirements.txt`
 
 ## Running
-1. Run `python watcheye.py` 
-2. Point your favorite browser to `localhost:5000`
+1. If using `virtualenvwrapper`: `workon WatcherEye`
+2. Run `python watcheye.py` 
+3. Point your favorite browser to `localhost:5000`
 
 The API can be accessed via HTTP/S requests, see `swagger.yml` for up-to-date API endpoints:
 
