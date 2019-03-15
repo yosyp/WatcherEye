@@ -1,5 +1,5 @@
 # WatcherEye
-RESTful API with Flask that serves images from Raspberry Pi picamera.
+RESTful API with Flask that serves images from Raspberry Pi powered by picamera.
 
 ## Setup
 This software is tested in the following environment:
