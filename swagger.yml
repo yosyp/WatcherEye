@@ -52,7 +52,7 @@ paths:
       summary: "Capture and return image from camera"
       operationId: "api.image"      
       produces:
-       - "image/*"
+       - "image/jpeg"
       responses:
         '200':
           description: "success"

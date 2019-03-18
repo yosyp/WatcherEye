@@ -1,8 +1,26 @@
 """
 API module responds to all api requests defined in swagger.yml
 """
+import platform
+from io import BytesIO
+from time import sleep
 from datetime import datetime
 from flask import make_response, abort, send_file
+
+"""
+BEGIN: Imports used for debugginig
+"""
+import requests
+"""
+END: Imports used for debugginig
+"""
+
+runningOnPi = False
+
+if platform.system() == 'Linux':
+    from picamera import PiCamera
+    runningonPi = True
+
 
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
@@ -32,8 +50,18 @@ def image():
 
     :return:        JSON array
     """
-    return send_file('img.png', mimetype='image/png')
-    # return 'hello'
+    my_stream = BytesIO()
+    if runningOnPi == True:
+        # Create an in-memory stream
+        camera = PiCamera()
+        camera.start_preview()
+        # Camera warm-up time
+        sleep(2)
+        camera.capture(my_stream, 'jpeg')
+    else:
+        my_stream = requests.get('https://cdn-images-1.medium.com/max/2400/0*KR0lpn7XYPGo1KBo.jpg').content
+
+    return send_file(BytesIO(my_stream), mimetype="image/jpeg")
 
 def stream():
     """
