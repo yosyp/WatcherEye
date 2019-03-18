@@ -18,7 +18,7 @@ def home():
     return render_template("home.html")
 
 if __name__ == '__main__':
-    handler = RotatingFileHandler('foo.log', maxBytes=10000, backupCount=1)
+    handler = RotatingFileHandler('logs/log.log', maxBytes=10000, backupCount=1)
     handler.setLevel(logging.INFO)
     app.app.logger.addHandler(handler)
     app.run(debug=True)
