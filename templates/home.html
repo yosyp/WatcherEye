@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Application Home Page</title>
+    <title>WatcherEye</title>
 </head>
 <body>
     <h2>
-        Hello World!
+        WatcherEye
     </h2>
+    You are running on a ____, here is a static image of Einsten:<br>
+    <img src="{{ url_for('/api/v1.api_image') }}" width=200>
 </body>
 </html>

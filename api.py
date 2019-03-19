@@ -2,10 +2,14 @@
 API module responds to all api requests defined in swagger.yml
 """
 import platform
+import logging
+import connexion
 from io import BytesIO
 from time import sleep
 from datetime import datetime
-from flask import make_response, abort, send_file
+from flask import make_response, abort, send_file, request
+
+app = connexion.App(__name__, specification_dir="./")
 
 """
 BEGIN: Imports used for debugginig
@@ -20,7 +24,6 @@ runningOnPi = False
 if platform.system() == 'Linux':
     from picamera import PiCamera
     runningonPi = True
-
 
 def get_timestamp():
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))

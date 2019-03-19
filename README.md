@@ -30,3 +30,4 @@ Logging is done by default at the `info` level (recording all incoming requests 
 
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
+2. [Video Streaming with Flask](https://blog.miguelgrinberg.com/post/video-streaming-with-flask)
