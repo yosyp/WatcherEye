@@ -63,7 +63,7 @@ paths:
       summary: "Returns URL to video stream"
       operationId: "api.stream"      
       produces:
-       - "application/json"      
+       - "application/octet-stream"      
       responses:
         '200':
           description: "success"              
