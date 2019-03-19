@@ -25,5 +25,8 @@ The API can be accessed via HTTP/S requests, see `swagger.yml` for up-to-date AP
 | `GET` | `/api/v1/image` | Capture and return image |
 | `GET` | `/api/v1/stream` | View video stream |
 
+## Logging
+Logging is done by default at the `info` level (recording all incoming requests and IPs) using the default python `logging` facility. Logs are stored in `logs/log.log`
+
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)

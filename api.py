@@ -74,6 +74,6 @@ def stream():
 
     :return:        JSON array
     """
-        app.app.logger.info('%s: stream() returned', request.remote_addr)
+    app.app.logger.info('%s: stream() returned', request.remote_addr)
     # return send_file('img.png', mimetype='image/png')
     return 'hello'   
