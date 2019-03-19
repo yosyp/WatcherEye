@@ -12,9 +12,9 @@ app.add_api("swagger.yml")
 
 @app.route("/")
 def home():
-    app.app.logger.warning('%s A warning occurred (%d apples)', request.remote_addr, 42)
-    app.app.logger.error('An error occurred')
-    app.app.logger.info('%'request.remote_addr)
+    # app.app.logger.warning('%s A warning occurred (%d apples)', request.remote_addr, 42)
+    # app.app.logger.error('An error occurred')
+    app.app.logger.info('%s: home() index route served', request.remote_addr)
     return render_template("home.html")
 
 if __name__ == '__main__':
@@ -22,3 +22,5 @@ if __name__ == '__main__':
     handler.setLevel(logging.INFO)
     app.app.logger.addHandler(handler)
     app.run(debug=True)
+    app.app.logger.info('Logging started')
+
