@@ -32,6 +32,7 @@ def ping():
 
     :return:        JSON array
     """
+    app.app.logger.info('%s: ping()', request.remote_addr)
     return ['pong', get_timestamp()]
 
 def stats():
@@ -41,6 +42,7 @@ def stats():
 
     :return:        JSON array
     """
+    app.app.logger.info('%s: stats()', request.remote_addr)    
     return 'stats go here'
 
 def image():
@@ -58,8 +60,10 @@ def image():
         # Camera warm-up time
         sleep(2)
         camera.capture(my_stream, 'jpeg')
+        app.app.logger.info('%s: image() from Pi', request.remote_addr)
     else:
         my_stream = requests.get('https://cdn-images-1.medium.com/max/2400/0*KR0lpn7XYPGo1KBo.jpg').content
+        app.app.logger.info('%s: image() from non-Pi', request.remote_addr)
 
     return send_file(BytesIO(my_stream), mimetype="image/jpeg")
 
@@ -70,5 +74,6 @@ def stream():
 
     :return:        JSON array
     """
+        app.app.logger.info('%s: stream() returned', request.remote_addr)
     # return send_file('img.png', mimetype='image/png')
     return 'hello'   
