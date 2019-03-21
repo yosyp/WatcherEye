@@ -1,8 +1,8 @@
 from io import BytesIO
 from time import sleep
-import requests
 from flask import send_file, request
 from flask_restful import Resource
+import requests
 
 class Ping(Resource):
     """
@@ -55,4 +55,3 @@ class Stream(Resource):
     """    
     def get(self):
         return "stream!" 
-

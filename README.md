@@ -7,18 +7,18 @@ This software is tested in the following environment:
 2. Picamera vX.Y
 
 ## Installation
-Install all python packages:
+All dependencies are specified in `requirements.txt`. Install all python packages:
 
 `pip install -r requirements.txt`
 
 ## Running
 1. If using `virtualenvwrapper`: `workon WatcherEye`
-2. `export FLASK_APP=watchereye`
-3. `export FLASK_ENV=development`
-4. `flask run`
+2. Set Flask app environment variable: `export FLASK_APP=watchereye`
+3. Set Flask app development variable:`export FLASK_ENV=development`
+4. Start the Flask server: `flask run`
 5. Point your favorite browser to `localhost:5000`
 
-The API can be accessed via HTTP/S requests, see `swagger.yml` for up-to-date API endpoints:
+The API can be accessed via HTTP/S requests, see `watchereye/api.py`for up-to-date API endpoint documentation. Briefly:
 
 | Method | Endpoint | Description |
 |-|-|-|
@@ -28,8 +28,13 @@ The API can be accessed via HTTP/S requests, see `swagger.yml` for up-to-date AP
 | `GET` | `/api/v1/stream` | View video stream |
 
 ## Logging
-Logging is done by default at the `info` level (recording all incoming requests and IPs) using the default python `logging` facility. Logs are stored in `logs/log.log`
+Logging at the `info` level (recording all incoming requests and IPs) using the default python `logging` facility. Logs are stored in `logs/log.log` and streamed to STDOUT
 
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
 2. [Video Streaming with Flask](https://blog.miguelgrinberg.com/post/video-streaming-with-flask)
+
+## Development Notes
+Update `requirements.txt` after installation any `pip` modules using:
+`pip freeze > requirements.txt`
+

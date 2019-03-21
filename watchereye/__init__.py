@@ -5,6 +5,9 @@ from flask_restful import reqparse, abort, Api, Resource
 from logging.config import dictConfig
 from api import *
 
+"""
+Logging config sets up logging to both STDOUT stream and log file.
+"""
 logging_config = dict(
     version = 1,
     formatters = {
@@ -16,7 +19,7 @@ logging_config = dict(
                    'formatter': 'f',
                    'level': logging.DEBUG},                 
         'file': {'class': 'logging.handlers.RotatingFileHandler',
-                 'filename': 'logs/log.log',
+                 'filename': 'logs/log.log', # Change this filename or make sure logs/ exists!
                  'maxBytes': 1024,
                  'backupCount': 3,
                  'formatter': 'f',
@@ -31,11 +34,14 @@ logging_config = dict(
 dictConfig(logging_config)
 logger = logging.getLogger()
 
-           
-
 app = Flask(__name__)
 api = Api(app)
 
+"""
+API endpoints route to classes with those names, with methods for get(), post(), etc.
+
+See each class separately for further documentation, inputs and ouputs. 
+"""
 api.add_resource(Ping,   '/api/v1/ping')
 api.add_resource(Stats,  '/api/v1/stats')
 api.add_resource(Image,  '/api/v1/image')
