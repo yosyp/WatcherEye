@@ -13,8 +13,10 @@ Install all python packages:
 
 ## Running
 1. If using `virtualenvwrapper`: `workon WatcherEye`
-2. Run `python watcheye.py` 
-3. Point your favorite browser to `localhost:5000`
+2. `export FLASK_APP=watchereye`
+3. `export FLASK_ENV=development`
+4. `flask run`
+5. Point your favorite browser to `localhost:5000`
 
 The API can be accessed via HTTP/S requests, see `swagger.yml` for up-to-date API endpoints:
 
