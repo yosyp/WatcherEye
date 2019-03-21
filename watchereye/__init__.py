@@ -1,30 +1,45 @@
-"""
-Main module of the server file
-"""
-# import connexion
 import logging
 from logging.handlers import RotatingFileHandler
-# from flask import render_template, request
-import flask
+from flask import Flask
+from flask_restful import reqparse, abort, Api, Resource
+from logging.config import dictConfig
+from api import *
 
-print("not")
-# app = connexion.App(__name__, specification_dir="./")
-app = flask.Flask(__name__)
+logging_config = dict(
+    version = 1,
+    formatters = {
+        'f': {'format':
+              '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'}
+        },
+    handlers = {
+        'stream': {'class': 'logging.StreamHandler',
+                   'formatter': 'f',
+                   'level': logging.DEBUG},                 
+        'file': {'class': 'logging.handlers.RotatingFileHandler',
+                 'filename': 'logs/log.log',
+                 'maxBytes': 1024,
+                 'backupCount': 3,
+                 'formatter': 'f',
+                 'level': logging.DEBUG},
+        },                 
+    root = {
+        'handlers': ['stream','file'],
+        'level': logging.DEBUG,
+        },
+)
 
-# app.add_api("swagger.yml")
+dictConfig(logging_config)
+logger = logging.getLogger()
 
-# @app.route("/")
-# def home():
-    # app.app.logger.warning('%s A warning occurred (%d apples)', request.remote_addr, 42)
-    # app.app.logger.error('An error occurred')
-    # app.app.logger.info('%s: home() index route served', request.remote_addr)
-    # return render_template("home.html", os = 'Windows')
+           
+
+app = Flask(__name__)
+api = Api(app)
+
+api.add_resource(Ping,   '/api/v1/ping')
+api.add_resource(Stats,  '/api/v1/stats')
+api.add_resource(Image,  '/api/v1/image')
+api.add_resource(Stream, '/api/v1/stream')
 
 if __name__ == '__main__':
-    handler = RotatingFileHandler('../logs/log.log', maxBytes=10000, backupCount=1)
-    handler.setLevel(logging.INFO)
-    app.logger.addHandler(handler)
     app.run(debug=True)
-    app.logger.info('Logging started')
-    print("hello")
-
