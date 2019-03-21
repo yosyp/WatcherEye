@@ -6,7 +6,7 @@ from flask_restful import Resource
 
 class Ping(Resource):
     """
-    This function
+    This function returns a ping response, current time, and server uptime. 
 
     :return     JSON array
     """
@@ -15,7 +15,8 @@ class Ping(Resource):
 
 class Stats(Resource):
     """
-    This function
+    This function returns server statistics by analyzing the log file, including
+    the number of images taken and served.
 
     :return     JSON array
     """    
@@ -24,9 +25,10 @@ class Stats(Resource):
 
 class Image(Resource):
     """
-    This function
+    This function returns a static image or picture from Picamera if running on 
+    a Raspberry Pi. 
 
-    :return     JSON array
+    :return     binary file, image/jpeg
     """    
     def get(self):
         my_stream = BytesIO()
@@ -46,9 +48,10 @@ class Image(Resource):
 
 class Stream(Resource):
     """
-    This function
+    This function returns a multipart video stream from Picamera if running on 
+    a Raspberry Pi, or a loop from file.
 
-    :return     JSON array
+    :return     binary stream, multipart/x-mixed-replace; boundary=frame
     """    
     def get(self):
         return "stream!" 
