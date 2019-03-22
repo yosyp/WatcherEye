@@ -30,6 +30,11 @@ The API can be accessed via HTTP/S requests, see `watchereye/api.py`for up-to-da
 ## Logging
 Logging at the `debug` level (recording all incoming requests and IPs) using the default python `logging` facility. Logs are stored in `logs/log.log` and streamed to STDOUT
 
+## Test
+Using PyTest:
+1. `workon WatcherEye`
+2. `python -m pytest -s --disable-pytest-warnings tests/`
+
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
 2. [Video Streaming with Flask](https://blog.miguelgrinberg.com/post/video-streaming-with-flask)

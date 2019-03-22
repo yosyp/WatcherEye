@@ -2,12 +2,15 @@ from io import BytesIO
 from time import sleep
 from flask import send_file, request, Response
 from flask_restful import Resource
+from datetime import datetime
 from os import uname
 import numpy as np
 import requests
 import cv2
 import time
 
+def get_timestamp():
+    return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
 
 class Ping(Resource):
     """
@@ -16,7 +19,7 @@ class Ping(Resource):
     :return     JSON array
     """
     def get(self):
-        return "hello!"
+        return ['pong', get_timestamp()]
 
 class Stats(Resource):
     """
@@ -46,7 +49,7 @@ class Image(Resource):
 
     :return binary image/jpeg
     """
-    def picameracapature(self):
+    def picameracapture(self):
         stream = BytesIO()
         with picamera.PiCamera() as camera:
             camera.start_preview()
@@ -60,7 +63,7 @@ class Image(Resource):
     :return     binary file, image/jpeg
     """    
     def get(self):
-        if uname().sysname == 'Dawrin':
+        if uname().sysname == 'Darwin':
             return Response(self.cameracapture(),   mimetype='image/jpeg')          
         else:
             return Response(self.picameracapture(), mimetype='image/jpeg')          
@@ -112,7 +115,7 @@ class Stream(Resource):
     :return     binary stream, multipart/x-mixed-replace; boundary=frame
     """    
     def get(self):
-        if uname().sysname == 'Dawrin':
+        if uname().sysname == 'Darwin':
             return Response(self.camerastream(),   mimetype='multipart/x-mixed-replace; boundary=frame')
         else:
             return Response(self.picamerastream(), mimetype='multipart/x-mixed-replace; boundary=frame')
