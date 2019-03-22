@@ -16,18 +16,16 @@ logging_config = dict(
         },
     handlers = {
         'stream': {'class': 'logging.StreamHandler',
-                   'formatter': 'f',
-                   'level': logging.DEBUG},                 
+                   'formatter': 'f'},
         'file': {'class': 'logging.handlers.RotatingFileHandler',
                  'filename': 'logs/log.log', # Change this filename or make sure logs/ exists!
                  'maxBytes': 1024,
                  'backupCount': 3,
-                 'formatter': 'f',
-                 'level': logging.DEBUG},
+                 'formatter': 'f'},
         },                 
     root = {
         'handlers': ['stream','file'],
-        'level': logging.DEBUG,
+        'level': 'INFO',
         },
 )
 
@@ -38,7 +36,6 @@ logger = logging.getLogger()
 app = Flask(__name__)
 api = Api(app)
 
-
 """
 Display landing page 
 @TODO API decription on landing page similar to what swagger provides.
@@ -46,7 +43,6 @@ Display landing page
 @app.route("/")
 def home():
     return render_template("home.html", os = 'Windows')
-
 
 """
 API endpoints route to classes with those names, with methods for get(), post(), etc.

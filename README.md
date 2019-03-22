@@ -14,18 +14,18 @@ All dependencies are specified in `requirements.txt`. Install all python package
 ## Running
 1. If using `virtualenvwrapper`: `workon WatcherEye`
 2. Set Flask app environment variable: `export FLASK_APP=watchereye`
-3. Set Flask app development variable:`export FLASK_ENV=development`
+3. Set Flask app development variable:`export FLASK_ENV=info`
 4. Start the Flask server: `flask run`
 5. Point your favorite browser to `localhost:5000`
 
 The API can be accessed via HTTP/S requests, see `watchereye/api.py`for up-to-date API endpoint documentation. Briefly:
 
-| Method | Endpoint | Description |
-|-|-|-|
-| `GET` | `/api/v1/ping` | Ping API server |
-| `GET` | `/api/v1/stats` | Usage statistics |
-| `GET` | `/api/v1/image` | Capture and return image |
-| `GET` | `/api/v1/stream` | View video stream |
+| Method | Endpoint | Description | Return Format |
+|-|-|-|-|
+| `GET` | `/api/v1/ping` | Ping API server | JSON array | 
+| `GET` | `/api/v1/stats` | Usage statistics | JSON array |
+| `GET` | `/api/v1/image` | Capture and return image | image/jpeg |
+| `GET` | `/api/v1/stream` | View video stream | multipart/x-mixed-replace; image/jpeg | 
 
 ## Logging
 Logging at the `debug` level (recording all incoming requests and IPs) using the default python `logging` facility. Logs are stored in `logs/log.log` and streamed to STDOUT
