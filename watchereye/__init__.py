@@ -1,9 +1,9 @@
 import logging
 from logging.handlers import RotatingFileHandler
-from flask import Flask
+from flask import Flask, render_template
 from flask_restful import reqparse, abort, Api, Resource
 from logging.config import dictConfig
-from api import *
+from watchereye.api import *
 
 """
 Logging config sets up logging to both STDOUT stream and log file.
@@ -34,8 +34,19 @@ logging_config = dict(
 dictConfig(logging_config)
 logger = logging.getLogger()
 
+
 app = Flask(__name__)
 api = Api(app)
+
+
+"""
+Display landing page 
+@TODO API decription on landing page similar to what swagger provides.
+"""
+@app.route("/")
+def home():
+    return render_template("home.html", os = 'Windows')
+
 
 """
 API endpoints route to classes with those names, with methods for get(), post(), etc.

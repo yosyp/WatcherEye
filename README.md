@@ -28,13 +28,13 @@ The API can be accessed via HTTP/S requests, see `watchereye/api.py`for up-to-da
 | `GET` | `/api/v1/stream` | View video stream |
 
 ## Logging
-Logging at the `info` level (recording all incoming requests and IPs) using the default python `logging` facility. Logs are stored in `logs/log.log` and streamed to STDOUT
+Logging at the `debug` level (recording all incoming requests and IPs) using the default python `logging` facility. Logs are stored in `logs/log.log` and streamed to STDOUT
 
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
 2. [Video Streaming with Flask](https://blog.miguelgrinberg.com/post/video-streaming-with-flask)
+3. [Flask Video Streaming Revisited](https://blog.miguelgrinberg.com/post/flask-video-streaming-revisited)
 
 ## Development Notes
-Update `requirements.txt` after installation any `pip` modules using:
+Update `requirements.txt` after installing any new `pip` modules using:
 `pip freeze > requirements.txt`
-
