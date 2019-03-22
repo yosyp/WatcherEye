@@ -2,10 +2,12 @@ from io import BytesIO
 from time import sleep
 from flask import send_file, request, Response
 from flask_restful import Resource
+from os import uname
 import numpy as np
 import requests
 import cv2
 import time
+
 
 class Ping(Resource):
     """
@@ -44,7 +46,7 @@ class Image(Resource):
 
     :return binary image/jpeg
     """
-    def picamerastream(self):
+    def picameracapature(self):
         stream = BytesIO()
         with picamera.PiCamera() as camera:
             camera.start_preview()
@@ -58,8 +60,10 @@ class Image(Resource):
     :return     binary file, image/jpeg
     """    
     def get(self):
-        return Response(self.cameracapture(), mimetype='image/jpeg')          
-
+        if uname().sysname == 'Dawrin':
+            return Response(self.cameracapture(),   mimetype='image/jpeg')          
+        else:
+            return Response(self.picameracapture(), mimetype='image/jpeg')          
 
 class Stream(Resource):
     """
@@ -108,5 +112,8 @@ class Stream(Resource):
     :return     binary stream, multipart/x-mixed-replace; boundary=frame
     """    
     def get(self):
-        return Response(self.camerastream(),
-                        mimetype='multipart/x-mixed-replace; boundary=frame')
+        if uname().sysname == 'Dawrin':
+            return Response(self.camerastream(),   mimetype='multipart/x-mixed-replace; boundary=frame')
+        else:
+            return Response(self.picamerastream(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
