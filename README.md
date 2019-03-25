@@ -33,7 +33,7 @@ Logging at the `debug` level (recording all incoming requests and IPs) using the
 ## Test
 Using PyTest:
 1. `workon WatcherEye`
-2. `python -m pytest -s --disable-pytest-warnings tests/`
+2. `python -m pytest -s -v --disable-pytest-warnings tests/`
 
 ## References
 1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
