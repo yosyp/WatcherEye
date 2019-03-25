@@ -1,5 +1,8 @@
 # WatcherEye
- [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)[![Build Status](https://travis-ci.com/yosyp/WatcherEye.svg?branch=master)](https://travis-ci.com/yosyp/WatcherEye)[![codecov](https://codecov.io/gh/yosyp/WatcherEye/branch/master/graph/badge.svg)](https://codecov.io/gh/yosyp/WatcherEye)
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.com/yosyp/WatcherEye.svg?branch=master)](https://travis-ci.com/yosyp/WatcherEye)
+[![codecov](https://codecov.io/gh/yosyp/WatcherEye/branch/master/graph/badge.svg)](https://codecov.io/gh/yosyp/WatcherEye)
 
 RESTful API with Flask that serves images from Raspberry Pi powered by picamera.
 

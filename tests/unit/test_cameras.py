@@ -3,9 +3,13 @@ This file
 
 """
 from io import BytesIO
-from os import uname
+from os import uname, environ
 import watchereye
 import imghdr
+import pytest
+
+@pytest.mark.skipif("TRAVIS" in environ and environ["TRAVIS"] == "true",
+                    reason="Skipping test on Travis, no hardware camera.")
 
 def test_camera_image():
     """

@@ -1,7 +1,11 @@
 import pytest
 import imghdr
+from os import environ
 
 from watchereye import *
+
+@pytest.mark.skipif("TRAVIS" in environ and environ["TRAVIS"] == "true",
+                    reason="Skipping test on Travis, no hardware camera.")
 
 def test_api_image(client):
     """
