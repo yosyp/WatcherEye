@@ -1,11 +1,9 @@
-import os
-import tempfile
 import json
 import pytest
 
 from watchereye import *
 
-def test_ping(client):
+def test_api_ping(client):
     """
     GIVEN
     WHEN
