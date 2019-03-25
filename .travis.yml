@@ -1,7 +1,13 @@
 language: python
 python:
  - "3.6"
+install:
+ - pip install -r requirements.txt 
+ - pip install codecov pytest-cov
 env:
  - TRAVIS=true
-script: python -m pytest -s -v --disable-pytest-warnings tests/
-after_success: codecov
+script:
+ - python -m pytest -s -v --disable-pytest-warnings tests/
+ - python -m pytest --cov=./ tests/
+after_success:
+ - codecov
