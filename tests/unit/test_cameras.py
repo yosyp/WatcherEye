@@ -1,5 +1,5 @@
 """
-This file 
+This file contains unit tests for accessing and reading the camera modules.
 
 """
 from io import BytesIO
@@ -25,16 +25,3 @@ def test_camera_image():
         buf = imgapi.picameracapture() 
 
     assert imghdr.what('', buf) == 'jpeg'
-
-# def test_camera_stream():
-#     """
-
-#     """
-#     streamapi = watchereye.Stream()
-
-#     if uname().sysname == 'Darwin':
-#         buf = imgapi.camerastream() 
-#     else:
-#         buf = imgapi.picamerastream()     
-
-#     assert
