@@ -8,9 +8,11 @@
 RESTful API with Flask that serves images from Raspberry Pi powered by picamera.
 
 ## Setup
-This software is intended to run on the following environment:
+This software is intended to run in the following environment:
 1. Raspberry Pi 3 Model B v1.2
 2. Picamera v2
+
+The testing environment for this software is a Macbook, the built-ion camera is used.
 
 ## Installation
 All dependencies are specified in `requirements.txt`. Install all python packages:
