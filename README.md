@@ -28,12 +28,12 @@ All dependencies are specified in `requirements.txt`. Install all python package
 
 The API can be accessed via HTTP/S requests, see `watchereye/api.py`for up-to-date API endpoint documentation. Briefly:
 
-| Method | Endpoint | Description | Return Format |
-|-|-|-|-|
-| `GET` | `/api/v1/ping` | Ping API server | JSON array | 
-| `GET` | `/api/v1/stats` | Usage statistics | JSON array |
-| `GET` | `/api/v1/image` | Capture and return image | image/jpeg |
-| `GET` | `/api/v1/stream` | View video stream | multipart/x-mixed-replace; image/jpeg | 
+| Method | Endpoint         | Description              | Return Format                         |
+|--------|------------------|--------------------------|---------------------------------------|
+| `GET`  | `/api/v1/ping`   | Ping API server          | JSON array                            | 
+| `GET`  | `/api/v1/stats`  | Usage statistics         | JSON array                            |
+| `GET`  | `/api/v1/image`  | Capture and return image | image/jpeg                            |
+| `GET`  | `/api/v1/stream` | View video stream        | multipart/x-mixed-replace; image/jpeg | 
 
 ## Logging
 Logging at the `debug` level (recording all incoming requests and IPs) using the default python `logging` facility. Logs are stored in `logs/log.log` and streamed to STDOUT
