@@ -1,14 +1,14 @@
 """
-This file 
+This file contains unit tests for the stats() GET function of the stats API endpoint.
 
 """
 import watchereye
 
 def test_stats():
     """
-    GIVEN
-    WHEN
-    THEN
+    GIVEN stats GET endpoint function
+    WHEN the stats() function is triggered
+    THEN check that ...
     """
     # ping = watchereye.Ping()
 

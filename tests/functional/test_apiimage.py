@@ -4,6 +4,7 @@ from os import environ
 
 from watchereye import *
 
+# Skip hardware-based tests on CI/CD tools
 @pytest.mark.skipif("TRAVIS" in environ and environ["TRAVIS"] == "true",
                     reason="Skipping test on Travis, no hardware camera.")
 
