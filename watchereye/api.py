@@ -1,3 +1,11 @@
+"""
+All API endpoints are defined here along with some helper methods.
+
+The Api() module adds resources in the form of classes, so each endpoint here is encapsulated
+in its own class. Within each glass the HTTP Method is named get(), post(), etc. In this way can
+separate the HTTP response logic with any helper methods.
+"""
+
 from io import BytesIO
 from time import sleep
 from flask import send_file, request, Response
@@ -10,11 +18,16 @@ import cv2
 import time
 
 def get_timestamp():
+    """
+    This function returns current date prettyprinted in %Y-%m-%d %H:%M:%S format.
+
+    :return     string
+    """
     return datetime.now().strftime(("%Y-%m-%d %H:%M:%S"))
 
 class Ping(Resource):
     """
-    This function returns a ping response, current time, and server uptime. 
+    This method returns a ping response, current time, and server uptime. 
 
     :return     JSON array
     """
@@ -23,7 +36,7 @@ class Ping(Resource):
 
 class Stats(Resource):
     """
-    This function returns server statistics by analyzing the log file, including
+    This method returns server statistics by analyzing the log file, including
     the number of images taken and served.
 
     :return     JSON array
@@ -33,7 +46,7 @@ class Stats(Resource):
 
 class Image(Resource):
     """
-    This function that reads a USB/laptop camera and returns 1 frame
+    This method that reads a USB/laptop camera and returns 1 frame
 
     :return binary image/jpeg
     """
@@ -45,7 +58,7 @@ class Image(Resource):
         return (cv2.imencode('.jpg', img)[1].tobytes())
 
     """
-    This function reads a Raspberry Pi camera and returns 1 frame 
+    This method reads a Raspberry Pi camera and returns 1 frame 
 
     :return binary image/jpeg
     """
@@ -58,7 +71,7 @@ class Image(Resource):
         return (cv2.imencode('.jpg', stream)[1].tobytes())
 
     """
-    This function returns a static image from a camera 
+    This method returns a static image from a camera 
 
     :return     binary file, image/jpeg
     """    
@@ -70,8 +83,10 @@ class Image(Resource):
 
 class Stream(Resource):
     """
-    This is a generator function that reads a USB/laptop camera and yields 1 frame 
+    This is a generator function/method that reads a USB/laptop camera and yields 1 frame 
     of a multipart jpeg video stream.
+
+    @TODO: Implement pytest with generator functions.
 
     :return binary stream, image/jpeg frame
     """
@@ -89,8 +104,10 @@ class Stream(Resource):
                    b'Content-Type: image/jpeg\r\n\r\n' + cv2.imencode('.jpg', img)[1].tobytes() + b'\r\n')                    
 
     """
-    This is a generator function that reads a Raspberry Pi camera and yields 1 frame 
-    of a multipart jpeg video stream.
+    This is a generator function/method that reads a Raspberry Pi camera and yields 1 frame 
+    of a multipart jpeg video stream. 
+
+    @TODO: Implement pytest with generator functions.
 
     :return binary stream, image/jpeg frame
     """
@@ -110,7 +127,7 @@ class Stream(Resource):
                 stream.truncate()
 
     """
-    This function returns a multipart video stream from a camera
+    This method returns a multipart video stream from a camera.
 
     :return     binary stream, multipart/x-mixed-replace; boundary=frame
     """    
