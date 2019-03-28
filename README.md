@@ -26,6 +26,9 @@ All dependencies are specified in `requirements.txt`. Install all python package
 4. Start the Flask server: `flask run`
 5. Point your favorite browser to `localhost:5000`
 
+Note that flask in debug mode only exposes the web service locally on the host. To have the web service accessible from external IPs (i.e. using the public IP of the server), you may need to run flask with the `--host=0.0.0.0` flag.
+
+## API Reference
 The API can be accessed via HTTP/S requests, see `watchereye/api.py`for up-to-date API endpoint documentation. Briefly:
 
 | Method | Endpoint         | Description              | Return Format                         |
