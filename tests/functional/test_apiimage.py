@@ -14,10 +14,11 @@ from watchereye import *
 
 def test_api_image(client):
     """
-    GIVEN
-    WHEN
-    THEN
+    GIVEN HTTP GET endpoint that served an image
+    WHEN the endpoint is hit
+    THEN check that the returned binary is a jpeg.
     """
+
     rv = client.get('/api/v1/image')
 
     assert imghdr.what('', rv.data) == 'jpeg'
