@@ -48,7 +48,7 @@ api = Api(app)
 
 
 """
-Display landing page 
+Display landing page
 @TODO API decription on landing page similar to what swagger provides.
 """
 @app.route("/")

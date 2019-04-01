@@ -9,8 +9,8 @@ RESTful API with Flask that serves images from Raspberry Pi powered by picamera.
 
 ## Setup
 This software is intended to run in the following environment:
-1. Raspberry Pi 3 Model B v1.2
-2. Picamera v2
+1.   Raspberry Pi 3 Model B v1.2
+2.   Picamera v2
 
 The testing environment for this software is a Macbook, the built-in camera is used.
 
@@ -20,11 +20,11 @@ All dependencies are specified in `requirements.txt`. Install all python package
 `pip install -r requirements.txt`
 
 ## Running
-1. If using `virtualenvwrapper`: `workon WatcherEye`
-2. Set Flask app environment variable: `export FLASK_APP=watchereye`
-3. Set Flask app development variable:`export FLASK_ENV=info`
-4. Start the Flask server: `flask run`
-5. Point your favorite browser to `localhost:5000`
+1.   If using `virtualenvwrapper`: `workon WatcherEye`
+2.   Set Flask app environment variable: `export FLASK_APP=watchereye`
+3.   Set Flask app development variable: `export FLASK_ENV=info`
+4.   Start the Flask server: `flask run`
+5.   Point your favorite browser to `localhost:5000`
 
 Note that flask in debug mode only exposes the web service locally on the host. To have the web service accessible from external IPs (i.e. using the public IP of the server), you may need to run flask with the `--host=0.0.0.0` flag.
 
@@ -47,9 +47,9 @@ Using PyTest:
 2. `python -m pytest -s -v --disable-pytest-warnings tests/`
 
 ## References
-1. [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
-2. [Video Streaming with Flask](https://blog.miguelgrinberg.com/post/video-streaming-with-flask)
-3. [Flask Video Streaming Revisited](https://blog.miguelgrinberg.com/post/flask-video-streaming-revisited)
+1.   [Installing Raspbian on Raspberry Pi on Mac OS X](https://www.raspberrypi.org/documentation/installation/installing-images/)
+2.   [Video Streaming with Flask](https://blog.miguelgrinberg.com/post/video-streaming-with-flask)
+3.   [Flask Video Streaming Revisited](https://blog.miguelgrinberg.com/post/flask-video-streaming-revisited)
 
 ## Development Notes
 Update `requirements.txt` after installing any new `pip` modules using:

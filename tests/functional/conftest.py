@@ -2,7 +2,7 @@
 
 !IMPORTANT This file needs to be named conftest.py instead of __init__.py, and
 define your application fixture for tests in conftest.py (This is the default
-test configuration file used by pytest). 
+test configuration file used by pytest).
 """
 
 import os

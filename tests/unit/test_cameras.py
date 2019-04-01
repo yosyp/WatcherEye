@@ -21,8 +21,8 @@ def test_camera_image():
     imgapi = watchereye.Image()
 
     if uname().sysname == 'Darwin':
-        buf = imgapi.cameracapture() 
+        buf = imgapi.cameracapture()
     else:
-        buf = imgapi.picameracapture() 
+        buf = imgapi.picameracapture()
 
     assert imghdr.what('', buf) == 'jpeg'
