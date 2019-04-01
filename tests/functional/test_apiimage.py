@@ -14,7 +14,7 @@ from watchereye import *
 
 def test_api_image(client):
     """
-    GIVEN HTTP GET endpoint that served an image
+    GIVEN a HTTP GET endpoint that serves an image
     WHEN the endpoint is hit
     THEN check that the returned binary is a jpeg.
     """

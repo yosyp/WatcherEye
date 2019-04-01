@@ -14,10 +14,11 @@ from watchereye import *
 
 def test_api_stream(client):
     """
-    GIVEN
-    WHEN
+    GIVEN a HTTP GET stream endpoint
+    WHEN the endpoint is hit
     THEN
     """
+
     # rv = client.get('/api/v1/stream')
 
     # assert imghdr.what('', rv.data) == 'jpeg'

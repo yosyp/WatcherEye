@@ -9,10 +9,11 @@ from watchereye import *
 
 def test_api_stats(client):
     """
-    GIVEN
-    WHEN
+    GIVEN a HTTP GET stats endpoint
+    WHEN the endpoint is hit
     THEN
     """
+
     rv = client.get('/api/v1/stats')
 
     # temporary placeholder until response is finalized:
