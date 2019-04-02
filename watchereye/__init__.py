@@ -68,4 +68,4 @@ api.add_resource(Stream, '/api/v1/stream')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
