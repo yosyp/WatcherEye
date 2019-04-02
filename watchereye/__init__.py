@@ -32,7 +32,7 @@ logging_config = dict(
                  'maxBytes': 1024,
                  'backupCount': 3,
                  'formatter': 'f'},
-        },                 
+        },
     root = {
         'handlers': ['stream','file'],
         'level': 'INFO',
