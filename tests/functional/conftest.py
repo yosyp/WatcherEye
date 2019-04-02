@@ -5,8 +5,6 @@ define your application fixture for tests in conftest.py (This is the default
 test configuration file used by pytest).
 """
 
-import os
-import tempfile
 import pytest
 import watchereye
 

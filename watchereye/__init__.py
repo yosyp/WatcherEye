@@ -4,7 +4,7 @@ Main code entry point used by `flask run` to standup the web service.
 This file does 3 things:
  1. Configure logging to relevant files and output streams
  2. Startup Flask() and Api()
- 3. Configure routes to the root endpoint and all API endpoints 
+ 3. Configure routes to the root endpoint and all API endpoints
 """
 
 import logging
