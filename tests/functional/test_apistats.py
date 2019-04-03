@@ -1,9 +1,6 @@
 """
-
+...
 """
-
-import json
-import pytest
 
 from watchereye import *
 

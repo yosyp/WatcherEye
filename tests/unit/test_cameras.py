@@ -2,7 +2,6 @@
 This file contains unit tests for accessing and reading the camera modules.
 
 """
-from io import BytesIO
 from os import uname, environ
 import watchereye
 import imghdr

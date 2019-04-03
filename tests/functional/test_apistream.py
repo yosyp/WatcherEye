@@ -1,9 +1,8 @@
 """
-
+...
 """
 
 import pytest
-import imghdr
 from os import environ
 
 from watchereye import *
