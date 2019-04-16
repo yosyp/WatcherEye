@@ -8,20 +8,21 @@ import watchereye
 import imghdr
 import pytest
 
+# Skip hardware-based tests if using CI/CD tools:
 @pytest.mark.skipif("TRAVIS" in environ and environ["TRAVIS"] == "true",
                     reason="Skipping test on Travis, no hardware camera.")
 
 def test_camera_image():
     """
     GIVEN a camera resource
-    WHEN capturing an image
-    THEN check that it can be converted to binary data
+    WHEN an image is captured using the approriate module
+    THEN check that the binary data is a jpeg
     """
     imgapi = watchereye.Image()
 
     if uname().sysname == 'Darwin':
-        buf = imgapi.cameracapture() 
+        buf = imgapi.cameracapture()
     else:
-        buf = imgapi.picameracapture() 
+        buf = imgapi.picameracapture()
 
     assert imghdr.what('', buf) == 'jpeg'

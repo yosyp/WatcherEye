@@ -1,9 +1,19 @@
+"""
+Main code entry point used by `flask run` to standup the web service.
+
+This file does 3 things:
+ 1. Configure logging to relevant files and output streams
+ 2. Startup Flask() and Api()
+ 3. Configure routes to the root endpoint and all API endpoints 
+"""
+
 import logging
 from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template
 from flask_restful import reqparse, abort, Api, Resource
 from logging.config import dictConfig
 from watchereye.api import *
+
 
 """
 Logging config sets up logging to both STDOUT stream and log file.
@@ -36,13 +46,15 @@ logger = logging.getLogger()
 app = Flask(__name__)
 api = Api(app)
 
+
 """
-Display landing page 
+Display landing page
 @TODO API decription on landing page similar to what swagger provides.
 """
 @app.route("/")
 def home():
     return render_template("home.html", os = 'Windows')
+
 
 """
 API endpoints route to classes with those names, with methods for get(), post(), etc.
@@ -53,6 +65,7 @@ api.add_resource(Ping,   '/api/v1/ping')
 api.add_resource(Stats,  '/api/v1/stats')
 api.add_resource(Image,  '/api/v1/image')
 api.add_resource(Stream, '/api/v1/stream')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
