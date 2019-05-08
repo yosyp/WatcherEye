@@ -4,7 +4,7 @@ Main code entry point used by `flask run` to standup the web service.
 This file does 3 things:
  1. Configure logging to relevant files and output streams
  2. Startup Flask() and Api()
- 3. Configure routes to the root endpoint and all API endpoints 
+ 3. Configure routes to the root endpoint and all API endpoints
 """
 
 import logging
@@ -32,7 +32,7 @@ logging_config = dict(
                  'maxBytes': 1024,
                  'backupCount': 3,
                  'formatter': 'f'},
-        },                 
+        },
     root = {
         'handlers': ['stream','file'],
         'level': 'INFO',
@@ -68,4 +68,4 @@ api.add_resource(Stream, '/api/v1/stream')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
