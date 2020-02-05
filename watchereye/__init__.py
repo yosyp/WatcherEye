@@ -7,6 +7,7 @@ This file does 3 things:
  3. Configure routes to the root endpoint and all API endpoints
 """
 
+import os
 import logging
 from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template
@@ -14,6 +15,15 @@ from flask_restful import reqparse, abort, Api, Resource
 from logging.config import dictConfig
 from watchereye.api import *
 
+"""
+Check if logs/ directory exists, if it does not then create it.
+Check if logs/log.log file exists, if it does not then create it.
+"""
+if not os.path.exists('logs'):
+    os.makedirs('logs')
+
+if not os.path.isfile('logs/log.log'):
+    file = open('logs/log.log', 'w')
 
 """
 Logging config sets up logging to both STDOUT stream and log file.
