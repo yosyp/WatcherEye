@@ -1,1 +1,2 @@
-# keep this file for Travis CI 
+2020-02-05 14:39:41,122 werkzeug     INFO     127.0.0.1 - - [05/Feb/2020 14:39:41] "GET /api/v1/ping HTTP/1.1" 200 -
+2020-02-05 14:39:47,390 werkzeug     INFO     127.0.0.1 - - [05/Feb/2020 14:39:47] "GET /api/v1/stats HTTP/1.1" 200 -

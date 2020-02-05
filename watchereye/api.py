@@ -7,13 +7,10 @@ separate the HTTP response logic with any helper methods.
 """
 
 from io import BytesIO
-from time import sleep
-from flask import send_file, request, Response
+from flask import Response
 from flask_restful import Resource
 from datetime import datetime
 from os import uname
-import numpy as np
-import requests
 import cv2
 import time
 
@@ -123,7 +120,7 @@ class Stream(Resource):
             time.sleep(2)
 
             stream = BytesIO()
-            for foo in camera.capture_continuous(stream, 'jpeg', use_video_port=True):
+            for _ in camera.capture_continuous(stream, 'jpeg', use_video_port=True):
                 # return current frame
                 stream.seek(0)
                 yield stream.read()
