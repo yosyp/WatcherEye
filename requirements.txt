@@ -18,7 +18,7 @@ Jinja2==2.10.1
 jsonschema==2.6.0
 MarkupSafe==1.1.1
 more-itertools
-numpy==1.16.2
+numpy==1.22.0
 openapi-spec-validator==0.2.6
 opencv-python==4.0.0.21
 pathlib==1.0.1
